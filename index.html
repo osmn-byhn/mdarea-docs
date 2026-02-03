@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="shortcut icon" href="https://i.hizliresim.com/278ij38.png"
+    type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&amp;display=swap"
+    rel="stylesheet">
+  <title>Osman Beyhan</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    rel="stylesheet">
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    };
+  </script>
+  <style>
+    body {
+      font-family: "Afacad", serif;
+    }
+  </style>
+
+  <script>
+    if (localStorage.getItem("color-theme") === "light" || (!("color-theme" in
+          localStorage) && window.matchMedia("(prefers-color-scheme: light)")
+        .matches)) {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100 text-black">
+  <div id="app"
+    class="w-[95%] lg:max-w-[1140px] mx-auto bg-white dark:bg-black rounded-md shadow-xl p-5 mt-[12vh]">
+    <h1 id="osmn-byhnmdarea-ecosystem"
+      class="text-3xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#osmn-byhnmdarea-ecosystem">@osmn-byhn/mdarea Ecosystem</a>
+    </h1>
+
+    Welcome to the <b class="font-bold">React Markdown Editor</b> suite. This
+    repository contains everything you need to build, customize, and deploy a
+    professional markdown editing experience in your web applications.
+
+    Whether you are a beginner looking for a "drop-in" component or an expert
+    building a custom editor from scratch, this monorepo has the tools for you.
+
+    <hr class="border-gray-300 my-4">
+
+    <h2 id="-quick-start-for-react-users"
+      class="text-2xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#-quick-start-for-react-users">🚀 Quick Start (For React
+        Users)</a>
+    </h2>
+
+    If you just want a working editor in your React app <b
+      class="font-bold">right now</b>, follow these steps.
+
+    <h3 id="1-install"
+      class="text-xl font-semibold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#1-install">1. Install</a>
+    </h3>
+
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-bash">pnpm add @osmn-byhn/mdarea
+<h1 id="or" class="text-3xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+                <a href="#or">or</a>
+              </h1>
+npm install @osmn-byhn/mdarea
+</code></pre>
+    </div>
+
+    <h3 id="2-usage"
+      class="text-xl font-semibold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#2-usage">2. Usage</a>
+    </h3>
+
+    Copy and paste this code into your application:
+
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-tsx">import React, { useState } from 'react';
+import { MarkdownEditor } from '@osmn-byhn/mdarea';
+
+// IMPORTANT: Do not forget to import the styles!
+import '@osmn-byhn/mdarea/styles.css';
+
+export default function MyEditor() {
+  const [content, setContent] = useState('# Hello World');
+
+  return (
+    <div style="{{" height:="" '500px',="" border:="" '1px="" solid="" #ddd'="" }}="">
+      <markdowneditor value="{content}" onchange="{(newContent)" ==""> setContent(newContent)}
+        placeholder="Start typing your masterpiece..."
+      /&gt;
+    </markdowneditor></div>
+  );
+}
+</code></pre>
+    </div>
+
+    <b class="font-bold">That's it!</b> You now have a fully functional markdown
+    editor with a toolbar, split-pane preview, and syntax highlighting.
+
+    <hr class="border-gray-300 my-4">
+
+    <h2 id="-packages-overview"
+      class="text-2xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#-packages-overview">📦 Packages Overview</a>
+    </h2>
+
+    This project is divided into specialized packages. Depending on what you
+    need, you can use them together or separately.
+
+
+    <div class="overflow-x-auto my-4">
+      <table class="table-auto w-full border border-gray-700">
+        <thead>
+          <tr>
+            <th class="p-2 border border-gray-700 bg-gray-800 text-white">
+              Package</th>
+            <th class="p-2 border border-gray-700 bg-gray-800 text-white">
+              Description</th>
+            <th class="p-2 border border-gray-700 bg-gray-800 text-white">Use
+              Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-gray-100 bg-gray-100 dark:bg-gray-900">
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              <b class="font-bold"><a class="text-blue-500 hover:underline"
+                  href="./packages/editor-react"><code
+                    class="bg-gray-200 px-1 rounded">@osmn-byhn/mdarea</code></a></b>
+            </td>
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              The main React component.</td>
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              "I want a finished editor UI."</td>
+          </tr>
+          <tr class="bg-gray-200 dark:bg-gray-800">
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              <b class="font-bold"><a class="text-blue-500 hover:underline"
+                  href="./packages/editor-core"><code
+                    class="bg-gray-200 px-1 rounded">@osmn-byhn/editor-core</code></a></b>
+            </td>
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              The logic engine (State, Selection).</td>
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              "I want to build my own UI from scratch."</td>
+          </tr>
+          <tr class="bg-gray-100 bg-gray-100 dark:bg-gray-900">
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              <b class="font-bold"><a class="text-blue-500 hover:underline"
+                  href="./packages/editor-parsers"><code
+                    class="bg-gray-200 px-1 rounded">@osmn-byhn/editor-parsers</code></a></b>
+            </td>
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              Converters (Markdown ↔ HTML).</td>
+            <td
+              class="p-2 border border-gray-700 text-center text-black dark:text-white">
+              "I need to save as HTML or load HTML."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr class="border-gray-300 my-4">
+
+    <h2 id="-customization-make-it-yours"
+      class="text-2xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#-customization-make-it-yours">🎨 Customization (Make it
+        Yours)</a>
+    </h2>
+
+    The <code class="bg-gray-200 px-1 rounded">MarkdownEditor</code> is highly
+    customizable. You don't have to stick with the default look.
+
+    <h3 id="changing-labels-localization"
+      class="text-xl font-semibold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#changing-labels-localization">Changing Labels (Localization)</a>
+    </h3>
+
+    Want the buttons to be in Turkish? or French?
+
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-tsx"><markdowneditor labels="{{" write:="" 'yaz',="" preview:="" 'Önizleme'="" }}="">
+</markdowneditor></code></pre>
+    </div>
+
+    <h3 id="styling-css"
+      class="text-xl font-semibold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#styling-css">Styling (CSS)</a>
+    </h3>
+
+    We use standard CSS classes. You can override them in your own CSS files.
+
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-css">/<i class="italic"> In your global css file </i>/
+.md-toolbar-container {
+  background-color: #f0f0f0; /<i class="italic"> Change toolbar background </i>/
+}
+
+.md-tab-btn.active {
+  color: #0070f3; /<i class="italic"> Change active tab color </i>/
+  border-bottom-color: #0070f3;
+}
+</code></pre>
+    </div>
+
+    For more granular control without global side-effects, pass your own class
+    names:
+
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-tsx"><markdowneditor classnames="{{" container:="" 'my-custom-editor-wrapper',="" toolbar:="" 'my-custom-toolbar',="" textarea:="" 'my-custom-textarea'="" }}="">
+</markdowneditor></code></pre>
+    </div>
+
+    <hr class="border-gray-300 my-4">
+
+    <h2 id="-advanced-usage"
+      class="text-2xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#-advanced-usage">🛠 Advanced Usage</a>
+    </h2>
+
+    <h3 id="using-the-core-logic-osmn-byhneditor-core"
+      class="text-xl font-semibold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#using-the-core-logic-osmn-byhneditor-core">Using the Core Logic
+        (<code
+          class="bg-gray-200 px-1 rounded">@osmn-byhn/editor-core</code>)</a>
+    </h3>
+
+    If you are building a non-React app or want total control, use the core
+    library.
+
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-typescript">import { createEditor } from '@osmn-byhn/editor-core';
+
+// 1. Create the engine
+const editor = createEditor('Initial text');
+
+// 2. Manipulate state programmatically
+editor.insertText('Hello ');
+editor.toggleWrap('<i class="italic"></i>'); // Toggles bold
+editor.insertText('World');
+editor.toggleWrap('<i class="italic"></i>');
+
+// 3. Get the result
+console.log(editor.getState().value); 
+// Output: "Hello <b class="font-bold">World</b>"
+</code></pre>
+    </div>
+
+    <h3 id="converting-html-to-markdown-and-back"
+      class="text-xl font-semibold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#converting-html-to-markdown-and-back">Converting HTML to
+        Markdown (and back)</a>
+    </h3>
+
+    Need to save your content as HTML for a CMS? Or load existing HTML into the
+    editor?
+
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-typescript">import { markdownToHtml, htmlToMarkdown } from '@osmn-byhn/editor-parsers';
+
+// SAVE: Markdown -&gt; HTML
+const htmlOutput = await markdownToHtml('# Title');
+// Result: <h1>Title</h1>
+
+// LOAD: HTML -&gt; Markdown
+const markdownInput = htmlToMarkdown('<strong>Bold</strong> text');
+// Result: <b class="font-bold">Bold</b> text
+</code></pre>
+    </div>
+
+    <hr class="border-gray-300 my-4">
+
+    <h2 id="-development"
+      class="text-2xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#-development">💻 Development</a>
+    </h2>
+
+    Want to contribute or run the project locally?
+
+    <ul class="list-disc pl-5">
+      <li class="ml-0"><b class="font-bold">Clone the repo</b></li>
+    </ul>
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-bash">   git clone https://github.com/osmn-byhn/mdarea.git
+   cd mdarea
+   </code></pre>
+    </div>
+
+    <ul class="list-disc pl-5">
+      <li class="ml-0"><b class="font-bold">Install dependencies</b></li>
+    </ul>
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-bash">   pnpm install
+   </code></pre>
+    </div>
+
+    <ul class="list-disc pl-5">
+      <li class="ml-0"><b class="font-bold">Run the Storybook playground</b>
+      </li>
+    </ul>
+    <div class="code-container relative rounded-lg p-4 overflow-auto mt-2">
+      <button
+        class="copy-btn absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-1 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition m-[25px] z-[10]"><i
+          id="copyBtn" class="bi bi-clipboard"></i></button>
+      <pre class="line-numbers"><code class="language-bash">   pnpm run storybook
+   </code></pre>
+    </div>
+    This opens a development environment at <code
+      class="bg-gray-200 px-1 rounded">http://localhost:6006</code> where you
+    can see all components in action.
+
+    <hr class="border-gray-300 my-4">
+
+    Want you run or test the project live on the web?
+    Storybook is deployed on Vercel. You can access it at <a
+      class="text-blue-500 hover:underline"
+      href="https://mdarea-storybook.osmanbeyhan.com">MdArea Storybook</a>.
+
+    <h2 id="-license"
+      class="text-2xl font-bold my-1 !text-gray-600 dark:!text-gray-100">
+      <a href="#-license">📄 License</a>
+    </h2>
+
+    ISC License. Made with ❤️ by Osman Beyhan.
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+
+        document.querySelector(".copy-btn")?.addEventListener("click",
+          function() {
+            const code = document.querySelector("pre code").innerText;
+            navigator.clipboard.writeText(code);
+            const copyBtn = document.getElementById("copyBtn");
+            copyBtn.classList.remove("bi-clipboard");
+            copyBtn.classList.add("bi-clipboard-check");
+          });
+      });
+    </script>
+    <p class="text-right text-black dark:text-white">Author: Osman Beyhan</p>
+    <div class="flex gap-3">
+      <a href="https://github.com/osmn-byhn/mdarea" target="_blank"
+        class="flex gap-2 w-8 h-8 rounded-md bg-[#080808] text-white items-center justify-center">
+        <i class="bi bi bi-github text-xl p-4"></i>
+      </a><a href="https://www.npmjs.com/package/@osmn-byhn/mdarea"
+        target="_blank"
+        class="flex gap-2 w-8 h-8 rounded-md bg-[#cd3e3d] text-white items-center justify-center">
+        <i class="bi fa-brands fa-npm text-xl p-4"></i>
+      </a><a
+        href="https://yarnpkg.com/package?q=mdarea&amp;name=%40osmn-byhn%2Fmdarea"
+        target="_blank"
+        class="flex gap-2 w-8 h-8 rounded-md bg-[#3c93bb] text-white items-center justify-center">
+        <i class="bi fa-brands fa-yarn text-xl p-4"></i>
+      </a><a href="https://mdarea-docs.osmanbeyhan.com/" target="_blank"
+        class="flex gap-2 w-8 h-8 rounded-md bg-[#000] text-white items-center justify-center">
+        <i class="bi bi bi-globe-americas text-xl p-4"></i>
+      </a><a href="https://mdarea-storybook.osmanbeyhan.com" target="_blank"
+        class="flex gap-2 w-8 h-8 rounded-md bg-[#000] text-white items-center justify-center">
+        <i class="bi bi bi-link-45deg text-xl p-4"></i>
+      </a>
+    </div>
+  </div>
+  <hr class="mt-10">
+  <div class="my-5">
+    <p class="text-center">
+      <span class="">❤️ Make via</span>
+      <a href="https://www.mdtoweb.osmanbeyhan.com/"
+        class="text-blue-600">MDtoWeb</a>
+    </p>
+  </div>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js">
+  </script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js">
+  </script>
+
+
+</body>
+
+</html>
